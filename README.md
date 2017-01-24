@@ -26,8 +26,7 @@ Press this button, to get your own copy of the sample running in Bluemix! It clo
 **Short note on app names:** You can choose to use whatever name you'd like, but if you're planning to use this as a backend-app alongside a frontend-app, it is recommended that you use the postfix `-frontend` and `-backend` for the apps respectively. If you for example are to create a new web app named "Aviator", a good naming convention would be to have the frontend apps *aviator-frontend* (*aviator-front-test* will be created for you), in addition to *aviator-backend* (*aviator-backend-test* will be created for you).
 
 2. When you click the **Create** button in the Toolchain page, you will get an overview of the tools integrated into the Toolchain. Ensure that the GitHub tools and the Delivery Pipeline is Configured :heavy_check_mark:.
-3. To monitor the progress of the app creation, click on the Delivery Pipeline box and monitor the stages. When all stages are successfully finished, two apps are created: **Test App** with the postfix `-test`, and a **Production App** without pre- or postfix that must be manually started. This is done by clicking the small Play-button on the top of the `Production Stage` stage. *The Deploy to Production stage is manual in case there are errors outside runtime, i.e., not caught by build or deploy jobs.*
-
+3. To monitor the progress of the app creation, click on the Delivery Pipeline box and monitor the stages. When all stages are successfully finished, two apps are created: **Test App** with the postfix `-test`, and a **Production App** without pre- or postfix that must be manually started. This is done by clicking the small Play-button on the top of the `Production Stage` stage. *The Deploy to Production stage is manual in case there are errors outside runtime, i.e., not caught by build or deploy jobs.*.
 **Note:** Altough two apps are created, only one repo is created.
 ----
 
