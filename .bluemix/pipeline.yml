@@ -39,7 +39,7 @@ stages:
       application: ${CF_TEST_APP_NAME}
     script: |
       #!/bin/bash
-      cf push "${CF_TEST_APP_NAME}" -f manifest-test.yml
+      cf push "${CF_APP}" -f manifest-test.yml
 - name: Deploy to Production
   inputs:
   - type: job
@@ -56,10 +56,10 @@ stages:
       application: ${CF_APP_NAME}
     script: |-
       #!/bin/bash
-      cf push "${CF_APP_NAME}" -f manifest-prod.yml
+      cf push "${CF_APP}" -f manifest-prod.yml
 
       # View logs
-      # cf logs "${CF_APP_NAME}" --recent
+      # cf logs "${CF_APP}" --recent
 hooks:
 - enabled: true
   label: null
