@@ -4,5 +4,4 @@ applications:
   instances: 1
   domain: mybluemix.net
   name: nodeseedapp
-  host: nodeseedapp
   disk_quota: 1024M
