@@ -36,10 +36,10 @@ stages:
       region_id: ${PROD_REGION_ID}
       organization: ${PROD_ORG_NAME}
       space: ${PROD_SPACE_NAME}
-      application: ${CF_APP_NAME}-test
+      application: ${CF_TEST_APP_NAME}
     script: |
       #!/bin/bash
-      cf push "${CF_APP}" -f manifest-test.yml
+      cf push "${CF_TEST_APP_NAME}" -f manifest-test.yml
 - name: Deploy to Production
   inputs:
   - type: job
@@ -56,10 +56,10 @@ stages:
       application: ${CF_APP_NAME}
     script: |-
       #!/bin/bash
-      cf push "${CF_APP}" -f manifest-prod.yml
+      cf push "${CF_APP_NAME}" -f manifest-prod.yml
 
       # View logs
-      # cf logs "${CF_APP}" --recent
+      # cf logs "${CF_APP_NAME}" --recent
 hooks:
 - enabled: true
   label: null

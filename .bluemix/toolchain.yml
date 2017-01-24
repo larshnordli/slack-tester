@@ -31,6 +31,7 @@ sample-build:
      env:
       SAMPLE_REPO: "sample-repo"
       CF_APP_NAME: "{{deploy.parameters.prod-app-name}}"
+      CF_TEST_APP_NAME: "{{deploy.parameters.prod-app-name}}-test"
       PROD_SPACE_NAME: "{{deploy.parameters.prod-space}}"
       PROD_ORG_NAME: "{{deploy.parameters.prod-organization}}"
       PROD_REGION_ID: "{{deploy.parameters.prod-region}}"
