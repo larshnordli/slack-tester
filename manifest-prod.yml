@@ -3,6 +3,6 @@ applications:
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: node-seed-app
-  host: node-seed-app
+  name: nodeseedapp
+  host: nodeseedapp
   disk_quota: 1024M
