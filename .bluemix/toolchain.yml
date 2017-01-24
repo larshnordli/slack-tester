@@ -1,0 +1,52 @@
+---
+default_locale: en
+locales:
+  $ref: locales.yml
+name: "Node.js + Express Bluemix Seed Application"
+description: "Includes a reuseable Node.js + Express backend server, example code to add Watson Services, in addition to a continous delivery pipeline with Test Environment and manually deployable Production Environment"
+version: 0.1
+image: data:image/svg+xml;base64,$file(toolchain.svg,base64)
+icon: data:image/svg+xml;base64,$file(icon.svg,base64)
+required:
+ - deploy
+ - sample-repo
+
+# Github repos
+sample-repo:
+  service_id: githubpublic
+  parameters:
+    repo_name: "{{name}}"
+    repo_url: https://github.com/larshnordli/NodeBluemixSeed
+    type: clone
+    has_issues: true
+
+# Pipelines
+sample-build:
+  service_id: pipeline
+  parameters:
+    name: "{{name}}"
+    ui-pipeline: true
+    configuration:
+     content: $file(pipeline.yml)
+     env:
+      SAMPLE_REPO: "sample-repo"
+      CF_APP_NAME: "{{deploy.parameters.prod-app-name}}"
+      PROD_SPACE_NAME: "{{deploy.parameters.prod-space}}"
+      PROD_ORG_NAME: "{{deploy.parameters.prod-organization}}"
+      PROD_REGION_ID: "{{deploy.parameters.prod-region}}"
+     execute: true
+    services: ["sample-repo"]
+  hidden: [form, description]
+
+
+#Web IDE
+webide:
+  service_id: orion
+
+#Deployment
+deploy:
+  schema:
+    $ref: deploy.json
+  service-category: pipeline
+  parameters:
+    prod-app-name: "{{sample-repo.parameters.repo_name}}"
