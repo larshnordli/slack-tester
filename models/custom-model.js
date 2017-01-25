@@ -46,6 +46,7 @@ var initializeService = function() {
         console.info("Running locally, setting the service with the name " + localCredentials.name);
     }
 
+    //watsonService is the actual service, e.g., Conversation, Alchemy etc.
     _watsonService = watson.watsonService({
         username: username,
         password: password,
